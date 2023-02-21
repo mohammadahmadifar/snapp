@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\AccountNumber;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +13,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(100)->create();
+        User::factory(50)->create();
+        AccountNumber::factory(300)->create();
 
     }
 }
