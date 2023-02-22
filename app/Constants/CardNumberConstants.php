@@ -2,7 +2,7 @@
 
 namespace App\Constants;
 
-class CartNumberConstants
+class CardNumberConstants
 {
     const bmi = '603799';
     const banksepah = '589210';
@@ -31,7 +31,7 @@ class CartNumberConstants
     /**
      * @var array|string[]
      */
-    public static array $bankCartNumberNames = [
+    public static array $bankCardNumberNames = [
         'bmi',
         'banksepah',
         'edbi',
@@ -60,7 +60,7 @@ class CartNumberConstants
     /**
      * @var array|string[]
      */
-    public static array $bankCartNumbers = [
+    public static array $bankCardNumbers = [
         '603799',
         '589210',
         '627648',
