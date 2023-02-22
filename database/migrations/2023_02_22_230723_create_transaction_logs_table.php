@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cart_numbers', function (Blueprint $table) {
+        Schema::create('transaction_logs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('account_number_id')->constrained();
-            $table->string('cart_number');
+            $table->string('origin_card');
+            $table->string('destination_card');
+            $table->integer('price');
+            $table->integer('wage');
             $table->timestamps();
         });
     }
@@ -24,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cart_numbers');
+        Schema::dropIfExists('transaction_logs');
     }
 };

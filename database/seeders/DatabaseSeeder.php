@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Constants\CartNumberConstants;
+use App\Constants\CardNumberConstants;
 use App\Models\AccountNumber;
-use App\Models\CartNumber;
+use App\Models\CardNumber;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,9 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(50)->create();
-        AccountNumber::factory(100)->create();
-        CartNumber::factory(150)->create();
+        User::factory(10)->create();
+        AccountNumber::factory(15)->create();
+        CardNumber::factory(20)->create();
 
     }
 }

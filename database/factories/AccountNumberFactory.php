@@ -20,6 +20,7 @@ class AccountNumberFactory extends Factory
         return [
             'user_id' => User::all()->random()->id,
             'account_number' => $this->faker->unique()->numberBetween(1111111111,9999999999),
+            'balance' => $this->faker->unique()->numberBetween(5000000,9999999999),
        ];
     }
 
