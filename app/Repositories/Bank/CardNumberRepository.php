@@ -30,7 +30,13 @@ class CardNumberRepository extends BaseRepository
             ->first();
     }
 
-    public function moneyTransfer($card, $price, $destinationCard)
+    /**
+     * @param $card
+     * @param $price
+     * @param $destinationCard
+     * @return void
+     */
+    public function moneyTransfer($card, $price, $destinationCard): void
     {
         $card->accountNumber->update([
             'balance' => $card->accountNumber->balance - $price + config('custom.bank.wage')
@@ -46,5 +52,4 @@ class CardNumberRepository extends BaseRepository
             'wage' => config('custom.bank.wage'),
         ]);
     }
-
 }
