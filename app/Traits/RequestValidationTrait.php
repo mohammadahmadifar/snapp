@@ -2,11 +2,6 @@
 
 namespace App\Traits;
 
-use App\Models\File\File;
-use App\Models\Stock\Basket;
-use App\Models\Stock\Symbol;
-use App\Models\User\Analyst;
-use App\Models\User\User;
 use Illuminate\Validation\Rule;
 
 trait RequestValidationTrait

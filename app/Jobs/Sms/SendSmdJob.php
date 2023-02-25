@@ -2,11 +2,9 @@
 
 namespace App\Jobs\Sms;
 
-use App\Models\TransactionLog;
 use App\Services\Sms\Ghasedak\SmsGhasedak;
 use App\Services\Sms\Kavenegar\SmsKavenegar;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;

@@ -5,8 +5,6 @@ namespace App\Listeners\Bank;
 use App\Events\Bank\TransactionLogCreateEvent;
 use App\Jobs\Sms\SendSmdJob;
 use App\Models\CardNumber;
-use App\Repositories\Bank\CardNumberRepository;
-use Illuminate\Support\Facades\Log;
 
 class SendSmsListener
 {
