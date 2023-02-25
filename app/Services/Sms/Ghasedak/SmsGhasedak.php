@@ -2,9 +2,7 @@
 
 namespace App\Services\Sms\Ghasedak;
 
-use App\Exceptions\Sms\UserWrongMobileException;
 use App\Services\ApiAbstract;
-use Illuminate\Support\Facades\Http;
 
 class SmsGhasedak extends ApiAbstract
 {

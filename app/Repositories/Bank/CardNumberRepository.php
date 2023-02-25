@@ -5,7 +5,6 @@ namespace App\Repositories\Bank;
 use App\Models\CardNumber;
 use App\Models\TransactionLog;
 use App\Repositories\BaseRepository;
-use Illuminate\Database\Query\Builder;
 
 class CardNumberRepository extends BaseRepository
 {
