@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Bank\CardNumberController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Bank\TransactionLogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +16,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('card-to-card-operation', [CardNumberController::class, 'cardToCardOperation']);
-
-
+Route::get('most-transaction-in-10-minutes', [TransactionLogController::class, 'mostTransactionIn10Minutes']);
