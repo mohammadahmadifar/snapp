@@ -4,6 +4,7 @@ namespace App\Repositories\Bank;
 
 use App\Models\CardNumber;
 use App\Models\TransactionLog;
+use App\Models\User;
 use App\Repositories\BaseRepository;
 use Illuminate\Database\Query\Builder;
 
@@ -17,17 +18,23 @@ class TransactionLogRepository extends BaseRepository
         return TransactionLog::class;
     }
 
-
-    public function mostTransactionIn10Minutes()
+    /**
+     * @return array
+     */
+    public function mostTransactionIn10Minutes(): array
     {
-        $allData = $this->model
+        $allDatas = $this->model
             ->where('created_at', '>', now()->subMinutes(1000))
             ->with('cardNumber.accountNumber.user')
             ->get()
             ->pluck('cardNumber.accountNumber.user.id')
             ->toArray();
-        $allUsers = array_flip(array_count_values($allData));
+        $allUsers = array_count_values($allDatas);
+        arsort($allUsers);
+        $allUsers = array_flip($allUsers);
         $bestUsers = array_splice($allUsers, 0, 3);
+        $bestUsers = array_values($bestUsers);
+
         $data = array();
         for ($i = 0; $i < count($bestUsers); $i++) {
             $user_id = $bestUsers[$i];
