@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('account_numbers', function (Blueprint $table) {
             $table->id();
-            $table->string('mobile',11);
+            $table->foreignId('user_id')->constrained();
+            $table->string('account_number');
             $table->timestamps();
         });
     }
@@ -23,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('account_numbers');
     }
 };

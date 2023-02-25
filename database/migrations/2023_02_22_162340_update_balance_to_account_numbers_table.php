@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('mobile',11);
-            $table->timestamps();
+        Schema::table('account_numbers', function (Blueprint $table) {
+            $table->bigInteger('balance')->default(0)->after('account_number');
         });
     }
 
@@ -23,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::table('account_numbers', function (Blueprint $table) {
+            //
+        });
     }
 };
