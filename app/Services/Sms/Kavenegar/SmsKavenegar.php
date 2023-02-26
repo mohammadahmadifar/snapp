@@ -25,19 +25,10 @@ class SmsKavenegar extends ApiAbstract
     }
 
     /**
-     * @param string $messages
-     * @param string $mobile
-     * @return array
-     * @throws \Exception
+     * @return string
      */
-    public function sendMessage(string $messages, string $mobile): array
+    protected function getPath(): string
     {
-        return $this->post(
-            '/sms/send.json',
-            [
-                'message' => urlencode($messages),
-                'receptor' => $mobile,
-            ]
-        );
+        return '/sms/send.json';
     }
 }

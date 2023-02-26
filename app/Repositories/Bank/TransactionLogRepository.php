@@ -24,7 +24,7 @@ class TransactionLogRepository extends BaseRepository
     public function mostTransactionIn10Minutes(): array
     {
         $allDatas = $this->model
-            ->where('created_at', '>', now()->subMinutes(1000))
+            ->where('created_at', '>', now()->subMinutes(10))
             ->with('cardNumber.accountNumber.user')
             ->get()
             ->pluck('cardNumber.accountNumber.user.id')
@@ -37,13 +37,13 @@ class TransactionLogRepository extends BaseRepository
 
         $data = array();
         for ($i = 0; $i < count($bestUsers); $i++) {
-            $user_id = $bestUsers[$i];
+            $userId = $bestUsers[$i];
             $data[$i] = [
-                'user_id' => $user_id,
+                'user_id' => $userId,
                 'data' => TransactionLog::query()
                     ->select('id', 'origin_card', 'destination_card', 'price', 'wage')
-                    ->whereHas('cardNumber.accountNumber.user', function ($query) use ($user_id) {
-                        return $query->where('id', $user_id);
+                    ->whereHas('cardNumber.accountNumber.user', function ($query) use ($userId) {
+                        return $query->where('id', $userId);
                     })
                     ->take(10)
                     ->orderBy('id', 'desc')
