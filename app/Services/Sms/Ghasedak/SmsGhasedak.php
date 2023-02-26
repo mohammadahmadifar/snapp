@@ -32,19 +32,10 @@ class SmsGhasedak extends ApiAbstract
     }
 
     /**
-     * @param string $messages
-     * @param string $mobile
-     * @return array
-     * @throws \Exception
+     * @return string
      */
-    public function sendMessage(string $messages, string $mobile): array
+    protected function getPath(): string
     {
-        return $this->post(
-            '/v2/sms/send/simple',
-            [
-                'message' => urlencode($messages),
-                'receptor' => $mobile,
-            ]
-        );
+        return '/v2/sms/send/simple';
     }
 }

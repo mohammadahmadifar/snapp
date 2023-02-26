@@ -18,6 +18,11 @@ abstract class ApiAbstract
      */
     abstract protected function getHeaders(): array;
 
+    /**
+     * @return string
+     */
+    abstract protected function getPath(): string;
+
 
     /**
      * @param string $path
@@ -39,6 +44,17 @@ abstract class ApiAbstract
         }
 
         return $response->json();
+    }
+
+    public function sendMessage(string $messages, string $mobile): array
+    {
+        return $this->post(
+            $this->getPath(),
+            [
+                'message' => urlencode($messages),
+                'receptor' => $mobile,
+            ]
+        );
     }
 
 
